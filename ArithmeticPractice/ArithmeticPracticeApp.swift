@@ -15,7 +15,7 @@ struct ArithmeticPracticeApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(store: store)
+            QuizView(store: store)
         }
     }
 }

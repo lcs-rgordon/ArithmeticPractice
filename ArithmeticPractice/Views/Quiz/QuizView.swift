@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  QuizView.swift
 //  ArithmeticPractice
 //
 //  Created by Russell Gordon on 2022-02-04.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct QuizView: View {
     
     // MARK: Stored properties
     
@@ -68,8 +68,8 @@ struct ContentView: View {
     
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct QuizView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(store: QuestionStore(questions: testData))
+        QuizView(store: QuestionStore(questions: testData))
     }
 }
