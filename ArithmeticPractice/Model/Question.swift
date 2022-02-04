@@ -22,7 +22,7 @@ class Question: Identifiable, ObservableObject {
     var multiplier: Int
     var multiplicand: Int
     var product: Int
-    var state: QuestionState
+    @Published var state: QuestionState
     
     // MARK: Initializers
     // By default, random values are created, unless
@@ -45,13 +45,16 @@ class Question: Identifiable, ObservableObject {
         guard let providedProduct = Int(input) else {
             
             // If the input cannot be made into an integer, it is definitely wrong
+            state = .incorrect
             return false
         }
         
         // Check the answer
         if providedProduct == product {
+            state = .correct
             return true
         } else {
+            state = .incorrect
             return false
         }
         

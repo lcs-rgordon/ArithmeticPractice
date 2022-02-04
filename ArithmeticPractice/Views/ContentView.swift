@@ -26,11 +26,24 @@ struct ContentView: View {
             
             QuestionView(question: currentQuestion)
             
-            TextField("", text: $providedAnswer)
-                .font(.system(size: 72))
-                .keyboardType(.numberPad)
-                .multilineTextAlignment(.trailing)
-                .padding(.trailing, 40)
+            HStack {
+                
+                // Image shows a checkmark when correct, or an "x" when incorrect
+                Image(systemName: currentQuestion.state == .correct ? "checkmark.circle" : "x.square")
+                    .resizable()
+                    // Invisible when question is not answered
+                    .opacity(currentQuestion.state == .unanswered ? 0.0 : 1.0)
+                    // Green when correct, red when incorrect
+                    .foregroundColor(currentQuestion.state == .correct ? Color.green : Color.red)
+                    .frame(width: 50, height: 50)
+                    .padding(.leading, 40)
+                
+                TextField("", text: $providedAnswer)
+                    .font(.system(size: 72))
+                    .keyboardType(.numberPad)
+                    .multilineTextAlignment(.trailing)
+                    .padding(.trailing, 40)
+            }
             
             Button(action: {
                 
