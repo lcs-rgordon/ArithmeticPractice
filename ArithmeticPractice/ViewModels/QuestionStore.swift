@@ -26,6 +26,16 @@ class QuestionStore: ObservableObject {
         
     }
     
+    // MARK: Functions
+    func newQuestion() {
+        
+        // Save the existing question to the history
+        questions.append(currentQuestion)
+        
+        // Make a new question (random numbers created via the initializer on Question type)
+        currentQuestion = Question()
+    }
+    
 }
 
 // Create some test data to use with SwiftUI Previews
