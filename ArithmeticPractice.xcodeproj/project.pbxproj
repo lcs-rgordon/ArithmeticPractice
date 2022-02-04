@@ -15,6 +15,7 @@
 		81CD29A227AD749E003A5234 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CD29A127AD749E003A5234 /* QuestionView.swift */; };
 		81CD29A427AD786A003A5234 /* QuestionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CD29A327AD786A003A5234 /* QuestionStore.swift */; };
 		81CD29C627ADD40B003A5234 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CD29C527ADD40B003A5234 /* ResultView.swift */; };
+		81CD29CA27ADD580003A5234 /* AnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CD29C927ADD580003A5234 /* AnswerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		81CD29A127AD749E003A5234 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		81CD29A327AD786A003A5234 /* QuestionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStore.swift; sourceTree = "<group>"; };
 		81CD29C527ADD40B003A5234 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		81CD29C927ADD580003A5234 /* AnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				81CD299027AD512E003A5234 /* ContentView.swift */,
 				81CD29A127AD749E003A5234 /* QuestionView.swift */,
 				81CD29C527ADD40B003A5234 /* ResultView.swift */,
+				81CD29C927ADD580003A5234 /* AnswerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			files = (
 				81CD29A427AD786A003A5234 /* QuestionStore.swift in Sources */,
 				81CD29A227AD749E003A5234 /* QuestionView.swift in Sources */,
+				81CD29CA27ADD580003A5234 /* AnswerView.swift in Sources */,
 				81CD29A027AD72E4003A5234 /* Question.swift in Sources */,
 				81CD299127AD512E003A5234 /* ContentView.swift in Sources */,
 				81CD298F27AD512E003A5234 /* ArithmeticPracticeApp.swift in Sources */,
