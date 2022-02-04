@@ -46,23 +46,8 @@ struct QuizView: View {
             ZStack {
                 
                 // Button to allow the user to get a new question
-                Button(action: {
-                    
-                    // Clear the old answer
-                    providedAnswer = ""
-                    
-                    // Generate a new question
-                    store.newQuestion()
-                    
-                }, label: {
-                    Text("New question")
-                        .font(.largeTitle)
-                        .padding()
-                })
-                    .buttonStyle(.bordered)
-                    .padding(.top)
-                    // Only show this button when a question has been answered
-                    .opacity(store.currentQuestion.state == .unanswered ? 0.0 : 1.0)
+                NewQuestionView(store: store,
+                                providedAnswer: $providedAnswer)
                 
                 // Button to allow user to check answer
                 CheckAnswerView(currentQuestion: store.currentQuestion,
