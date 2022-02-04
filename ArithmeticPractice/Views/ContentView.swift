@@ -32,9 +32,29 @@ struct ContentView: View {
                 .multilineTextAlignment(.trailing)
                 .padding(.trailing, 40)
             
+            Button(action: {
+                
+                // Check the answer provided
+                let result = currentQuestion.check(providedAnswer)
+                
+                print("Was answer correct? \(result)")
+                
+            }, label: {
+                Text("Check answer")
+                    .font(.largeTitle)
+                    .padding()
+            })
+                .buttonStyle(.bordered)
+                .padding(.top)
+
             Spacer()
+            
+
         }
     }
+    
+    // MARK: Functions
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

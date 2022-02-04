@@ -37,4 +37,24 @@ class Question: Identifiable, ObservableObject {
         self.state = .unanswered
         
     }
+    
+    // See whether the given input is the correct answer
+    func check(_ input: String) -> Bool {
+        
+        // Attempt to convert the input to an Int
+        guard let providedProduct = Int(input) else {
+            
+            // If the input cannot be made into an integer, it is definitely wrong
+            return false
+        }
+        
+        // Check the answer
+        if providedProduct == product {
+            return true
+        } else {
+            return false
+        }
+        
+    }
+
 }
