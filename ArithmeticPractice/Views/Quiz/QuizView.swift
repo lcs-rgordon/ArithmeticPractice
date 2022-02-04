@@ -42,23 +42,10 @@ struct QuizView: View {
                 
             }
             
-            Button(action: {
-                
-                // Check the answer provided
-                store.currentQuestion.check(providedAnswer)
-                
-                // Ensure the user interface gets updated
-                answerChecked.toggle()
-                
-            }, label: {
-                Text("Check answer")
-                    .font(.largeTitle)
-                    .padding()
-            })
-                .buttonStyle(.bordered)
-                .padding(.top)
-                // Once an answer is checked, hide this button
-                .opacity(store.currentQuestion.state == .unanswered ? 1.0 : 0.0)
+            // Button to allow user to check answer
+            CheckAnswerView(currentQuestion: store.currentQuestion,
+                            providedAnswer: $providedAnswer,
+                            answerChecked: $answerChecked)
 
             Spacer()
             
