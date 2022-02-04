@@ -52,7 +52,9 @@
 			isa = PBXGroup;
 			children = (
 				81CD298E27AD512E003A5234 /* ArithmeticPracticeApp.swift */,
-				81CD299027AD512E003A5234 /* ContentView.swift */,
+				81CD299C27AD5140003A5234 /* Model */,
+				81CD299E27AD5154003A5234 /* ViewModels */,
+				81CD299D27AD514B003A5234 /* Views */,
 				81CD299227AD512F003A5234 /* Assets.xcassets */,
 				81CD299427AD512F003A5234 /* Preview Content */,
 			);
@@ -65,6 +67,28 @@
 				81CD299527AD512F003A5234 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		81CD299C27AD5140003A5234 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		81CD299D27AD514B003A5234 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				81CD299027AD512E003A5234 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		81CD299E27AD5154003A5234 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
