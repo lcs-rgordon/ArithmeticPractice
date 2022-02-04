@@ -39,23 +39,21 @@ class Question: Identifiable, ObservableObject {
     }
     
     // See whether the given input is the correct answer
-    func check(_ input: String) -> Bool {
+    func check(_ input: String) {
         
         // Attempt to convert the input to an Int
         guard let providedProduct = Int(input) else {
             
             // If the input cannot be made into an integer, it is definitely wrong
             state = .incorrect
-            return false
+            return
         }
         
         // Check the answer
         if providedProduct == product {
             state = .correct
-            return true
         } else {
             state = .incorrect
-            return false
         }
         
     }

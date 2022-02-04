@@ -14,43 +14,52 @@ struct ContentView: View {
     // Stores all the questions that the user has tried
     @ObservedObject var store: QuestionStore
     
-    // The question currently being shown
-    @StateObject var currentQuestion = Question()
-    
     // The user's answer
     @State var providedAnswer: String = ""
+    
+    // This is toggled when an answer is checked
+    @State var answerChecked: Bool = false
     
     // MARK: Computed properties
     var body: some View {
         VStack {
             
-            QuestionView(question: currentQuestion)
+            // Required so that UI updates when an answer is checked
+            let _ = print("answerChecked was toggled: \(answerChecked)")
             
+            // Show the question to be answered
+            QuestionView(question: store.currentQuestion)
+            
+            // Allow user to enter an answer
             HStack {
                 
                 // Image shows a checkmark when correct, or an "x" when incorrect
-                Image(systemName: currentQuestion.state == .correct ? "checkmark.circle" : "x.square")
+                Image(systemName: store.currentQuestion.state == .correct ? "checkmark.circle" : "x.square")
                     .resizable()
                     // Invisible when question is not answered
-                    .opacity(currentQuestion.state == .unanswered ? 0.0 : 1.0)
+                    .opacity(store.currentQuestion.state == .unanswered ? 0.0 : 1.0)
                     // Green when correct, red when incorrect
-                    .foregroundColor(currentQuestion.state == .correct ? Color.green : Color.red)
+                    .foregroundColor(store.currentQuestion.state == .correct ? Color.green : Color.red)
                     .frame(width: 50, height: 50)
                     .padding(.leading, 40)
                 
+                // Takes an answer from the user
                 TextField("", text: $providedAnswer)
                     .font(.system(size: 72))
                     .keyboardType(.numberPad)
                     .multilineTextAlignment(.trailing)
                     .padding(.trailing, 40)
+                    // Once the question has been answered, no more input is allowed
+                    .disabled(store.currentQuestion.state != .unanswered)
             }
             
             Button(action: {
                 
                 // Check the answer provided
-                let result = currentQuestion.check(providedAnswer)
+                store.currentQuestion.check(providedAnswer)
                 
-                print("Was answer correct? \(result)")
+                // Ensure the user interface gets updated
+                answerChecked.toggle()
                 
             }, label: {
                 Text("Check answer")
@@ -59,6 +68,8 @@ struct ContentView: View {
             })
                 .buttonStyle(.bordered)
                 .padding(.top)
+                // Once an answer is checked, hide this button
+                .opacity(store.currentQuestion.state == .unanswered ? 1.0 : 0.0)
 
             Spacer()
             
