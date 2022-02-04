@@ -43,14 +43,31 @@ struct ContentView: View {
                     .frame(width: 50, height: 50)
                     .padding(.leading, 40)
                 
-                // Takes an answer from the user
-                TextField("", text: $providedAnswer)
-                    .font(.system(size: 72))
-                    .keyboardType(.numberPad)
-                    .multilineTextAlignment(.trailing)
-                    .padding(.trailing, 40)
-                    // Once the question has been answered, no more input is allowed
-                    .disabled(store.currentQuestion.state != .unanswered)
+                ZStack {
+                    
+                    // Takes an answer from the user
+                    TextField("", text: $providedAnswer)
+                        .font(.system(size: 72))
+                        .keyboardType(.numberPad)
+                        .multilineTextAlignment(.trailing)
+                        .padding(.trailing, 40)
+                        // Once the question has been answered, hide this field
+                        .opacity(store.currentQuestion.state == .unanswered ? 1.0 : 0.0)
+                    
+                    // Show the answer the user gave (appears when the text field disappears)
+                    HStack {
+                        
+                        Spacer()
+                        
+                        Text(providedAnswer)
+                            .font(.system(size: 72))
+                            .padding(.trailing, 40)
+                    }
+                    // Once the question has been answered, show this text view
+                    .opacity(store.currentQuestion.state == .unanswered ? 0.0 : 1.0)
+
+                }
+                
             }
             
             Button(action: {
@@ -76,8 +93,6 @@ struct ContentView: View {
 
         }
     }
-    
-    // MARK: Functions
     
 }
 
