@@ -30,7 +30,7 @@ struct ContentView: View {
                 .font(.system(size: 72))
                 .keyboardType(.numberPad)
                 .multilineTextAlignment(.trailing)
-                .padding(.trailing, 18)
+                .padding(.trailing, 40)
             
             Spacer()
         }
