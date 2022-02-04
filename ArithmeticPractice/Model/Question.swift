@@ -15,9 +15,10 @@ enum QuestionState {
 }
 
 // Store a single question presented to the user
-struct Question {
+class Question: Identifiable, ObservableObject {
     
     // MARK: Stored properties
+    var id = UUID()
     var multiplier: Int
     var multiplicand: Int
     var product: Int

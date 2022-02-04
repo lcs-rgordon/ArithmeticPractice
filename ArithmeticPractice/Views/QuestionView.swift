@@ -39,8 +39,6 @@ struct QuestionView: View {
             Divider()
                 .background(.primary)
 
-            Spacer()
-            
         }
         .padding(.horizontal)
 
